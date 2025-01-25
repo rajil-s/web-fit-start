@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const exerciseSchema = new mongoose.Schema({
     exerciseName: {
         type: String,
-        required: true
+        required: true,
     },
     exerciseTime: {
         type: String,
@@ -17,11 +17,11 @@ const exerciseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    exerciseReps:{
+    exerciseReps: {
         type: String,
         required: true,
     },
-    exerciseSets:{
+    exerciseSets: {
         type: String,
         required: true,
     },
@@ -29,20 +29,18 @@ const exerciseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    exerciseInstruction: {
-        type: String,
-        required: true,
-    },
-    exerciseThumbnail: {
-        type: String,
-        required: true,
-    },
     exerciseVideo: {
         type: String,
         required: true,
+        // validate: {
+        //     validator: function (v) {
+        //         const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+        //         return youtubeRegex.test(v); // Validate YouTube URL format
+        //     },
+        //     message: props => `${props.value} is not a valid YouTube URL!`,
+        // },
     },
-})
+});
 
-const Exercise = mongoose.model('exercises', exerciseSchema)
-module.exports= Exercise;
-
+const Exercise = mongoose.model('exercises', exerciseSchema);
+module.exports = Exercise;
