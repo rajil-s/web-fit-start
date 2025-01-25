@@ -6,10 +6,10 @@ const { adminGuard, authGuard } = require("../middleware/authGuard");
 router.post('/create_meal', mealController.createMeal);
 
 //GET request to fetch all meals
-router.get('/get_all_meals', authGuard, mealController.getAllMeals);
+router.get('/get_all_meals', mealController.getAllMeals);
 
 //GET request to fetch single meal
-router.get('/get_meal/:id', authGuard, mealController.getSingleMeal);
+router.get('/get_meal/:id', mealController.getSingleMeal);
 
 //PUT request to update meal
 router.put('/update_meal/:id', mealController.updateMeal);
