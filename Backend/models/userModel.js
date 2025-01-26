@@ -1,66 +1,63 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-
-    fname:{
+    fname: {
         type: String,
         required: true,
     },
-
-    lname:{
+    lname: {
         type: String,
         required: true,
     },
-
-    phone:{
+    phone: {
         type: Number,
         unique: true,
         required: true,
     },
-
-    email:{
+    email: {
         type: String,
         required: true,
     },
-
-    password:{
+    password: {
         type: String,
         required: true,
     },
-
-    height:{
+    height: {
         type: String,
         required: true,
     },
-
-    weight:{
+    weight: {
         type: String,
         required: true,
     },
-
-    age:{
+    age: {
         type: String,
         required: true,
     },
-
     gender: {
         type: String,
         required: true,
     },
-    resetPasswordOTP:{
+    resetPasswordOTP: {
         type: Number,
-        default: null
+        default: null,
     },
-
-    resetPasswordExpires:{
+    resetPasswordExpires: {
         type: Date,
-        default: null
+        default: null,
     },
-    
     isAdmin: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+    },
+    points: {
+        type: Number,
+        default: 0, // Tracks the user's accumulated points
+    },
+    level: {
+        type: Number,
+        default: 1, // Tracks the user's current level, starting at 1
+    },
 });
 
 const User = mongoose.model("user", userSchema);

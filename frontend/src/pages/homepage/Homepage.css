@@ -1,0 +1,83 @@
+.carousel img {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px; /* Adds rounded corners to the banner */
+}
+/* Pagination */
+.pagination {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.pagination .page-item .page-link {
+    color: #29E33C; /* Text color */
+    background-color: #000000; /* Accent background color */
+    border-color: #000000; /* Border matches the accent color */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #1FA72A; /* Darker shade of the accent color for hover */
+    color: #fff; /* White text on hover */
+    border-color: #1FA72A; /* Darker border on hover */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #29E33C; /* Active button background */
+    border-color: #29E33C; /* Active button border */
+    color: #000000; /* Active button text color */
+    font-weight: bold; /* Bold text for active state */
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #484747; /* Disabled button background */
+    color: #ffffff; /* Disabled text color */
+    border-color: #ffffff; /* Disabled border color */
+    pointer-events: none; /* Disable click interaction */
+}
+
+
+
+/* Height and Weight Section - Stat Card */
+.stat-card {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+    border-radius: 50%; /* Makes the box circular */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Centers the box */
+    width: 300px; /* Increased size */
+    height: 300px; /* Increased size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+}
+
+.stat-card .icon {
+    margin-bottom: 15px;
+}
+
+.stat-card .icon img {
+    height: 110px; /* Increased size of the icon */
+    width: 110px;
+}
+
+.stat-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.stat-card p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Hover Effect */
+.stat-card:hover {
+    transform: scale(1.1); /* Slightly enlarge the box on hover */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Adds a more prominent shadow */
+}

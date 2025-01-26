@@ -1,0 +1,105 @@
+/* General Card Styling */
+.custom-card {
+    width: 18rem; /* Fixed width */
+    height: 24rem; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    border: none; /* Removes card border */
+    border-radius: 10px; /* Adds subtle rounded corners */
+    background-color: #f9f9f9; /* Minimalist light gray background */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Lifts the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances the shadow on hover */
+}
+
+/* Image Styling */
+.custom-card-img {
+    height: 50%; /* Fixed height for the image */
+    object-fit: cover;
+    border-bottom: 3px solid #29E33C; /* Accent line below the image */
+}
+
+/* Card Body */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20px;
+}
+
+/* Header Styling */
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1rem; /* Smaller title size */
+    font-weight: 600;
+    color: #333;
+}
+
+.time {
+    color: #29E33C; /* Accent color for time */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem; /* Smaller time font size */
+}
+
+/* Nutrition Section Styling */
+.meal-nutrition {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.nutrition-item {
+    flex: 1;
+}
+
+.nutrition-value {
+    font-size: 1rem; /* Smaller value size */
+    font-weight: bold;
+    color: #333;
+}
+
+.nutrition-label {
+    font-size: 0.8rem; /* Smaller label size */
+    color: #777;
+}
+
+/* Minimalist Shadow */
+.shadow-sm {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .custom-card {
+        width: 100%; /* Full-width on smaller screens */
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .custom-card-img {
+        height: 180px; /* Reset image height for smaller screens */
+    }
+
+    .meal-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .time {
+        margin-top: 5px;
+    }
+}

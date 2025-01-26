@@ -1,0 +1,85 @@
+/* General Card Styling */
+.custom-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none; /* Removes card border */
+    border-radius: 10px; /* Adds subtle rounded corners */
+    background-color: #f9f9f9; /* Minimalist light gray background */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Lifts the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances the shadow on hover */
+}
+
+/* Card Header Styling */
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calories {
+    color: #29E33C; /* Green accent for calories */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.duration {
+    color: #555; /* Neutral text color for duration */
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Badge Styling */
+.exercise-level-badge {
+    background-color: #29E33C; /* Green accent color */
+    padding: 7px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Exercise Video Styling */
+.exercise-video iframe {
+    border-radius: 5px; /* Slight rounding on video corners */
+    border: none; /* Removes default border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.exercise-video p {
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Minimalist Shadow */
+.shadow-sm {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .custom-card {
+        width: 100%; /* Makes the card full-width on small screens */
+    }
+
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .calories {
+        margin-top: 5px;
+    }
+}
