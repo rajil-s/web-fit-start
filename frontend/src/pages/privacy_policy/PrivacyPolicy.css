@@ -1,0 +1,67 @@
+/* General Container */
+.privacy-policy-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Header Styles */
+.privacy-policy-container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.privacy-policy-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Paragraph and List Styling */
+.privacy-policy-container p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.privacy-policy-container ul {
+  margin: 10px 0 20px 20px;
+  padding: 0;
+}
+
+.privacy-policy-container li {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .privacy-policy-container {
+      padding: 15px;
+  }
+
+  .privacy-policy-container h1 {
+      font-size: 1.8rem;
+  }
+
+  .privacy-policy-container h2 {
+      font-size: 1.3rem;
+  }
+
+  .privacy-policy-container p,
+  .privacy-policy-container li {
+      font-size: 0.9rem;
+  }
+}
