@@ -1,40 +1,57 @@
-import React from 'react';
-import './Leaderboards.css';
+import React, { useEffect, useState } from "react";
+import { getLeaderboardApi } from "../../apis/Api";
+import "./Leaderboards.css"; // Import CSS
+import { FaCrown, FaMedal } from "react-icons/fa";
 
-const Leaderboards = () => {
-    const mockData = [
-        { rank: 1, name: 'John Doe', points: 1200 },
-        { rank: 2, name: 'Jane Smith', points: 1150 },
-        { rank: 3, name: 'Michael Brown', points: 1100 },
-        { rank: 4, name: 'Emily Davis', points: 1050 },
-        { rank: 5, name: 'Chris Wilson', points: 1020 },
-        { rank: 6, name: 'Sophia Taylor', points: 1000 },
-        { rank: 7, name: 'James Anderson', points: 950 },
-        { rank: 8, name: 'Isabella Martinez', points: 920 },
-        { rank: 9, name: 'Oliver Garcia', points: 900 },
-        { rank: 10, name: 'Emma Rodriguez', points: 880 },
-    ];
+const Leaderboard = () => {
+    const [leaderboard, setLeaderboard] = useState([]);
+
+    useEffect(() => {
+        const fetchLeaderboard = async () => {
+            const response = await getLeaderboardApi();
+            if (response.success) {
+                setLeaderboard(response.leaderboard);
+            }
+        };
+        fetchLeaderboard();
+    }, []);
 
     return (
-        <div className="leaderboards-container">
-            <h1 className="leaderboards-title">Leaderboards</h1>
-            <div className="leaderboards-table-container">
-                <table className="leaderboards-table">
+        <div className="leaderboard-container">
+            <h2 className="leaderboard-title">Leaderboard</h2>
+            <div className="leaderboard-wrapper">
+                <table className="leaderboard-table">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Rank</th>
                             <th>Name</th>
                             <th>Points</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.map((user) => (
-                            <tr key={user.rank} className="leaderboards-row">
-                                <td className="rank">{user.rank}</td>
-                                <td className="name">{user.name}</td>
-                                <td className="points">{user.points}</td>
+                        {leaderboard.length > 0 ? (
+                            leaderboard.map((user, index) => (
+                                <tr key={index} className={`rank-${index + 1}`}>
+                                    <td>
+                                        {index === 0 ? (
+                                            <FaCrown className="gold-rank" />
+                                        ) : index === 1 ? (
+                                            <FaMedal className="silver-rank" />
+                                        ) : index === 2 ? (
+                                            <FaMedal className="bronze-rank" />
+                                        ) : (
+                                            index + 1
+                                        )}
+                                    </td>
+                                    <td className="user-name">{user.fullName || "Unknown"}</td>
+                                    <td>{user.points}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="3" className="no-data">No leaderboard data available</td>
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </table>
             </div>
@@ -42,4 +59,4 @@ const Leaderboards = () => {
     );
 };
 
-export default Leaderboards;
+export default Leaderboard;

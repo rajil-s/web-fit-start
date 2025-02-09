@@ -32,15 +32,23 @@ const exerciseSchema = new mongoose.Schema({
     exerciseVideo: {
         type: String,
         required: true,
-        // validate: {
-        //     validator: function (v) {
-        //         const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
-        //         return youtubeRegex.test(v); // Validate YouTube URL format
-        //     },
-        //     message: props => `${props.value} is not a valid YouTube URL!`,
-        // },
+        
     },
 });
 
 const Exercise = mongoose.model('exercises', exerciseSchema);
 module.exports = Exercise;
+
+
+
+// exerciseVideo: {
+//     type: String,
+//     required: true,
+//     // validate: {
+//     //     validator: function (v) {
+//     //         const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+//     //         return youtubeRegex.test(v); // Validate YouTube URL format
+//     //     },
+//     //     message: props => `${props.value} is not a valid YouTube URL!`,
+//     // },
+// },

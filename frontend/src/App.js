@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Homepage from './pages/homepage/Homepage';
 import Registerpage from './pages/register/Registerpage';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,9 +23,11 @@ import MealUser from './pages/user/meal_user/MealUser';
 import TermsConditions from './pages/terms_and_conditions/TermsConditions';
 import PrivacyPolicy from './pages/privacy_policy/PrivacyPolicy';
 import Leaderboard from './pages/leaderboards/Leaderboard';
+import AboutUs from './pages/aboutus/AboutUs';
 
+const Layout = () => {
+  const location = useLocation();
 
-function App() {
   // Get user data from localStorage
   const user = JSON.parse(localStorage.getItem('userData'));
 
@@ -33,10 +35,11 @@ function App() {
   const isAdmin = user && user.isAdmin;
   const isLoggedIn = !!user; // Check if the user is logged in
 
-  return (
-    <Router>
-      <ToastContainer />
+  // Define routes where footer should be hidden
+  const hideFooterRoutes = ['/login', '/register'];
 
+  return (
+    <>
       {/* Render the appropriate navbar based on the user's status */}
       {isAdmin ? (
         <Navbar />
@@ -59,8 +62,7 @@ function App() {
         <Route path='/terms_and_conditions' element={<TermsConditions />} />
         <Route path='/privacy_policy' element={<PrivacyPolicy />} />
         <Route path='/leaderboards' element={<Leaderboard />} />
-        
-
+        <Route path='/aboutus' element={<AboutUs />} />
 
         {/* Exercise Admin routes */}
         <Route element={<AdminRoutes />}>
@@ -72,7 +74,18 @@ function App() {
           <Route path='/admin/update_meal/:id' element={<UpdateMeal />} />
         </Route>
       </Routes>
-      <Footer />
+
+      {/* Conditionally render the Footer */}
+      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <ToastContainer />
+      <Layout />
     </Router>
   );
 }

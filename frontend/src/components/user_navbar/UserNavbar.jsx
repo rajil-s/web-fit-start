@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Dumbbell, Utensils, Trophy, MessageSquare, User, LogOut } from 'lucide-react';
+import { Home, Dumbbell, Utensils, Trophy, MessageSquare, User, LogOut,  } from 'lucide-react';
 
 const UserNavbar = () => {
     const user = JSON.parse(localStorage.getItem('userData'));
@@ -46,11 +46,7 @@ const UserNavbar = () => {
                                         <User size={16} /> Profile
                                     </Link>
                                 </li>
-                                <li>
-                                    <a className="dropdown-item d-flex align-items-center" href="/forgot_password">
-                                        <User size={16} /> Settings
-                                    </a>
-                                </li>
+                                
                                 <li>
                                     <button onClick={handleLogout} className="dropdown-item d-flex align-items-center">
                                         <LogOut size={16} /> Log Out

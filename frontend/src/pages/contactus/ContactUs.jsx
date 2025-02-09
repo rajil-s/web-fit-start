@@ -79,7 +79,7 @@ const ContactUs = () => {
                 <h2>Our Contact Info</h2>
                 <p>Email: support@fitstart.com</p>
                 <p>Phone: +1 123-456-7890</p>
-                <p>Address: 123 Fit Street, Wellness City, USA</p>
+                <p>Address: 123 Fit Street, Wellness City, Nepal</p>
             </div>
         </div>
     );

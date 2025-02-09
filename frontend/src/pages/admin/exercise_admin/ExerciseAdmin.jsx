@@ -94,18 +94,7 @@ const ExerciseAdmin = () => {
     return (
         <>
             <div className='container mt-3'>
-                <div>
-                    <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                            value={searchQuery}
-                            onChange={handleSearch}
-                        />
-                    </form>
-                </div>
+                
                 <div className="exercise-cards mt-3">
                     {
                         exercises.map((singleExercise) => (

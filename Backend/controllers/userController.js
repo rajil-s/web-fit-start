@@ -266,6 +266,48 @@ const verifyOtpAndSetPassword = async (req, res) => {
     }
 }
 
+// Add points when user completes an exercise
+const addPoints = async (req, res) => {
+    try {
+        const userId = req.user.id;  // Get user ID from auth token
+        const { points } = req.body; // Points earned from exercise
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        user.points += points; // Update points
+        await user.save();
+
+        res.status(200).json({ success: true, message: "Points added successfully", totalPoints: user.points });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server error", error });
+    }
+};
+
+// Fetch leaderboard sorted by points
+const getLeaderboard = async (req, res) => {
+    try {
+        // Fetch users and include first name, last name, and points
+        const leaderboard = await User.find({}, "fname lname points")
+            .sort({ points: -1 })  // Sort users by highest points
+            .limit(10);             // Show top 10 users
+
+        // Combine fname and lname to create full name
+        const formattedLeaderboard = leaderboard.map(user => ({
+            fullName: `${user.fname} ${user.lname}`,
+            points: user.points
+        }));
+
+        res.status(200).json({ success: true, leaderboard: formattedLeaderboard });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server error", error });
+    }
+};
+
+
+
 
 //exporting
 module.exports = {
@@ -275,5 +317,7 @@ module.exports = {
     updateUser,
     forgotPassword,
     verifyOtpAndSetPassword,
-    getMe
+    getMe,
+    addPoints,
+    getLeaderboard
 }

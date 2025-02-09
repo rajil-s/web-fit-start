@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './MealUserCard.css';
-import { FaClock, FaInfo, FaInfoCircle } from 'react-icons/fa';
+import { FaClock, FaInfoCircle } from 'react-icons/fa';
 
 const MealUserCard = ({ mealInformation }) => {
     const [showModal, setShowModal] = useState(false);
@@ -19,21 +19,21 @@ const MealUserCard = ({ mealInformation }) => {
                 <div className="card-body">
                     <div className="d-flex justify-content-between">
                         <h5 className="card-title">{mealInformation.mealName}</h5>
-                        <h5 className="card-title text-danger"><FaClock/> {mealInformation.mealTime} minutes</h5>
+                        <h5 className="card-title text-muted"><FaClock/> {mealInformation.mealTime} min</h5>
                     </div>
 
                     <div className="d-flex justify-content-between">
                         <div className="d-flex flex-column align-items-center">
                             <span>{mealInformation.mealProteins}g</span>
-                            <span>proteins</span>
+                            <span>Proteins</span>
                         </div>
                         <div className="d-flex flex-column align-items-center">
                             <span>{mealInformation.mealCalories}</span>
-                            <span>calories</span>
+                            <span>Calories</span>
                         </div>
                         <div className="d-flex flex-column align-items-center">
                             <span>{mealInformation.mealCarbs}g</span>
-                            <span>carbs</span>
+                            <span>Carbs</span>
                         </div>
                     </div>
                     <button className="btn btn-outline-dark w-100 mt-2" onClick={handleShowModal}>
@@ -48,6 +48,7 @@ const MealUserCard = ({ mealInformation }) => {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title">{mealInformation.mealName}</h5>
+                                <button type="button" className="close-btn" onClick={handleCloseModal}>×</button>
                             </div>
                             <div className="modal-body">
                                 <div className="modal-body-content">
@@ -76,7 +77,7 @@ const MealUserCard = ({ mealInformation }) => {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+                                <button type="button" className="btn btn-dark" onClick={handleCloseModal}>
                                     Close
                                 </button>
                             </div>

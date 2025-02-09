@@ -41,6 +41,7 @@ const Loginpage = () => {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('userData', JSON.stringify(res.data.userData));
                 navigate('/');
+                window.location.reload();
             }
         });
     };

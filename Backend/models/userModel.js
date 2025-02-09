@@ -50,14 +50,9 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    points: {
-        type: Number,
-        default: 0, // Tracks the user's accumulated points
-    },
-    level: {
-        type: Number,
-        default: 1, // Tracks the user's current level, starting at 1
-    },
+    points: { type: Number, 
+              default: 0, 
+    }
 });
 
 const User = mongoose.model("user", userSchema);

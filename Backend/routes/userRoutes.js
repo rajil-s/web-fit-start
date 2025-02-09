@@ -10,4 +10,7 @@ router.post('/forgot_password', userController.forgotPassword)
 router.post('/verify_otp', userController.verifyOtpAndSetPassword)
 router.get('/getMe',authGuard,userController.getMe)
 
+router.post("/addPoints", authGuard, userController.addPoints);  // Correct route
+router.get("/leaderboard", userController.getLeaderboard);        // Correct route
+
 module.exports = router

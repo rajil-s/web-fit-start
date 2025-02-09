@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Dumbbell, Utensils, MessageSquare, User, LogOut, Settings } from 'lucide-react';
+import { Home, Dumbbell, Utensils, MessageSquare, User, LogOut,  } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -44,11 +44,7 @@ const Navbar = () => {
                                         <User size={16} /> Profile
                                     </Link>
                                 </li>
-                                <li>
-                                    <a className="dropdown-item d-flex align-items-center" href="/forgot_password">
-                                        <Settings size={16} /> Settings
-                                    </a>
-                                </li>
+                                
                                 <li>
                                     <button onClick={handleLogout} className="dropdown-item d-flex align-items-center">
                                         <LogOut size={16} /> Log Out
